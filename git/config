@@ -1,0 +1,61 @@
+[alias]
+  lg = "log --graph --abbrev-commit --decorate --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
+
+[color]
+  ui = true
+  
+[credential]
+	UseHttpPath = true
+
+[pager]
+	branch = false
+
+[core]
+	editor = nvim
+	pager = delta
+	fsmonitor = false
+	untrackedcache = true
+
+[interactive]
+	diffFilter = delta --color-only
+
+[init]
+	defaultBranch = main
+
+[fetch]
+  prune = true
+
+[pull]
+	rebase = true
+
+[rebase]
+	updateRefs = true
+
+[push]
+  default = current
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+
+[rerere]
+	enabled = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[gitflow "branch"]
+	master = main
+	develop = develop
+
+[delta]
+	navigate = true
+	side-by-side = true
+
+[include]
+path = ./cos

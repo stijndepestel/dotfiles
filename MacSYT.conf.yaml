@@ -1,0 +1,5 @@
+- link:
+    ~/.config/git/local:
+      path: cos/git/MacSYT
+    ~/.ssh/config:
+      path: cos/ssh/MacSYT

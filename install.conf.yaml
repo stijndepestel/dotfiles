@@ -1,0 +1,40 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: 
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
+- link:
+    ~/.dotfiles: ''
+    ~/.zshrc: 
+      path: zsh/rc.zsh
+      force: true
+    ~/.config/tmux/tmux.conf: 
+      path: tmux/tmux.conf
+    ~/.config/alacritty/alacritty.toml:
+      path: alacritty/alacritty.toml
+    ~/.config/spaceship.zsh:
+      path: zsh/spaceship.zsh
+    ~/.tmux/plugins/tpm:
+      path: tpm/
+    ~/.config/git/config:
+      path: git/config
+    ~/.config/git/cos:
+      path: cos/git/config
+    ~/.config/nvim:
+      path: nvim/
+    ~/.config/eza:
+      path: eza/
+
+- create:
+    ~/.ssh:
+      mode: 0700
+

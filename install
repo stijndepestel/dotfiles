@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -e
+
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
+
+mkdir -p $XDG_CONFIG_HOME
+
+CONFIG_FILE="${XDG_CONFIG_HOME}/.id"
+
+if [ -z "$DOTFILES_ID" ]; then
+  # Check if the configuration file exists
+  if [ -f "$CONFIG_FILE" ]; then
+    export "DOTFILES_ID"=$(cat "$CONFIG_FILE")
+  else
+    read -p "Hi! How would you want to identify this computer? " CONFIG_VALUE
+    export "DOTFILES_ID"="$CONFIG_VALUE"
+  fi
+fi
+
+echo "$DOTFILES_ID" > "$CONFIG_FILE"
+
+CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
+
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+cd "${BASEDIR}"
+git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
+git submodule update --init --recursive "${DOTBOT_DIR}"
+
+bash "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+
+if [ -f "./$DOTFILES_ID.conf.yaml" ]
+then
+  bash "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${DOTFILES_ID}.conf.yaml" "${@}"
+fi
+

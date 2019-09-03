@@ -1,0 +1,13 @@
+[submodule "tpm"]
+	path = tpm
+	url = https://github.com/tmux-plugins/tpm.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "antidote"]
+	path = antidote
+	url = https://github.com/mattmc3/antidote.git
+[submodule "cos"]
+	path = cos
+	url = ssh://git@forge.local.stijndepestel.com:222/stijn/dotfiles-cos.git
