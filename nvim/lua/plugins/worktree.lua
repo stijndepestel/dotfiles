@@ -1,9 +1,9 @@
 local createNewWorkTree = function(opts)
   local gw = require("git-worktree")
-  local dpqaRoot = os.getenv("WORKTREE_ROOT_DIR")
+  local gitDir = os.getenv("WORKTREE_ROOT_DIR")
   opts = opts or {}
 
-  if dpqaRoot == nil then
+  if gitDir == nil then
     print("WORKTREE_ROOT_DIR not set")
     return
   end
@@ -13,7 +13,7 @@ local createNewWorkTree = function(opts)
     return
   end
 
-  gw.create_worktree(dpqaRoot .. "/branches/" .. branch, branch, "origin")
+  gw.create_worktree(gitDir .. "/branches/" .. branch, branch, "origin")
 end
 
 return {
