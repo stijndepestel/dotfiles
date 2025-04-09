@@ -13,7 +13,7 @@ option_as_alt = "Both"
 normal.family = "JetBrainsMono Nerd Font Mono"
 normal.style = "Thin"
 
-size = 14
+size = 12
 
 # -----------------------------------------------------------------------------
 # TokyoNight Alacritty Colors
