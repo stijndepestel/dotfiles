@@ -26,6 +26,13 @@ then
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled --resolve-engines --shell zsh)"
 fi
 
+if [ -d "${HOME}/.pyenv" ]; 
+then
+  export PYENV_ROOT="${HOME}/.pyenv"
+  export PATH="${PATH}:${PYENV_ROOT}/bin"
+  eval "$(pyenv init - zsh)"
+fi
+
 if command -v direnv &> /dev/null
 then
   eval "$(direnv hook zsh)"
@@ -136,3 +143,4 @@ fi
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
+
