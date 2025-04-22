@@ -21,10 +21,21 @@ source ${DOTFILES_LOCATION}/cos/zsh/rc.zsh
 
 export ZSH=$(antidote path ohmyzsh/ohmyzsh)
 
+if [ -d "${HOME}/.local/share/fnm" ]; then
+  export PATH="${PATH}:${HOME}/.local/share/fnm"
+fi
+
 if command -v fnm &> /dev/null
 then
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled --resolve-engines --shell zsh)"
 fi
+
+  # # fnm
+  # FNM_PATH="/home/stijn/.local/share/fnm"
+  # if [ -d "$FNM_PATH" ]; then
+  #   export PATH="/home/stijn/.local/share/fnm:$PATH"
+  #   eval "`fnm env`"
+  # fi
 
 if [ -d "${HOME}/.pyenv" ]; 
 then
@@ -143,4 +154,5 @@ fi
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
+
 
