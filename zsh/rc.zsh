@@ -117,8 +117,7 @@ if command -v nvim &> /dev/null
 then
   export EDITOR="nvim"
   alias vim=nvim
-else
-  export EDITOR="vim"
+  alias v="nvim ."
 fi
 
 if command -v bat &> /dev/null
