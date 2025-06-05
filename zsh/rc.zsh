@@ -123,6 +123,7 @@ fi
 if command -v bat &> /dev/null
 then
   alias cat=bat
+  alias catp="bat -pp"
 fi
 
 if command -v less &> /dev/null
@@ -154,4 +155,5 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-
+# Other Aliases
+alias gbv="git branch -vv"
