@@ -1,0 +1,38 @@
+#!/bin/bash -e
+
+# Usage: ./setup_git_worktree <git_remote_ssh_url> <target_directory>
+
+# --- Argument Validation ---
+if [ "$#" -ne 2 ]; then
+  echo "❌ Error: Invalid number of arguments."
+  echo "Usage: $0 <git_remote_ssh_url> <target_directory>"
+  exit 1
+fi
+
+GIT_URL="$1"
+TARGET_DIR="$2"
+
+mkdir -p "$TARGET_DIR/branches"
+cd "$TARGET_DIR"
+
+ABS_TARGET_DIR=$(pwd)
+echo "✅ Created directory $ABS_TARGET_DIR"
+
+git clone --bare "$GIT_URL" .bare
+echo "✅ Repository cloned successfully."
+
+echo "gitdir: ./.bare" >.git
+echo "export WORKTREE_ROOT_DIR=$ABS_TARGET_DIR" >.envrc
+echo "✅ Config files created."
+
+DEFAULT_BRANCH=$(git ls-remote --symref . HEAD | awk '/^ref:/ { split($2, a, "/"); printf "%s", a[3] }')
+
+if [ -z "$DEFAULT_BRANCH" ]; then
+  echo "❌ Error: Could not determine the default branch from the remote."
+  exit 1
+fi
+
+# Checkout the default branch into its own directory inside 'branches/'
+git worktree add "branches/$DEFAULT_BRANCH" "$DEFAULT_BRANCH"
+
+echo "✅ Worktree for branch '$DEFAULT_BRANCH' created at '$ABS_TARGET_DIR/branches/$DEFAULT_BRANCH'."

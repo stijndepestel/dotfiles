@@ -29,11 +29,12 @@ SPACESHIP_RPROMPT_ORDER=(
 
 # SPACESHIP_AWS_SYMBOL='\uf0ef' # Doesn't really work look into later
 SPACESHIP_BATTERY_THRESHOLD=75
+SPACESHIP_DIR_TRUNC_REPO=false
 
 SPACESHIP_EXIT_CODE_SHOW=true
 SPACESHIP_GIT_STATUS_COLOR=green
-SPACESHIP_CHAR_SYMBOL='❯ ' # "\uf460"  # '❯' # nothing witht these symbol characters work... Needs some research
 SPACESHIP_PROMPT_SYMBOL='XX'
+SPACESHIP_CHAR_SYMBOL='❯ ' # "\uf460"  # '❯' # nothing witht these symbol characters work... Needs some research
 SPACESHIP_CHAR_SYMBOL_ROOT='#'
 
 SPACESHIP_TIME_COLOR='#767676'

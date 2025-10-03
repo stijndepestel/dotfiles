@@ -18,7 +18,7 @@ if [ -z "$DOTFILES_ID" ]; then
   fi
 fi
 
-echo "$DOTFILES_ID" > "$CONFIG_FILE"
+echo "$DOTFILES_ID" >"$CONFIG_FILE"
 
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
@@ -30,10 +30,10 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-bash "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+bash "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}" || true # when something goes wrong, still try the device specific one.
 
-if [ -f "./$DOTFILES_ID.conf.yaml" ]
-then
+if [ -f "./$DOTFILES_ID.conf.yaml" ]; then
   bash "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${DOTFILES_ID}.conf.yaml" "${@}"
+else
+  echo "No device specific conf.yaml file found"
 fi
-

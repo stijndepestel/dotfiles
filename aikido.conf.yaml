@@ -1,0 +1,5 @@
+- link:
+    ~/.config/git/local:
+      path: cos/git/aikido
+    ~/.ssh/config:
+      path: cos/ssh/aikido

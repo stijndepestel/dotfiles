@@ -10,4 +10,4 @@
 	url = https://github.com/mattmc3/antidote.git
 [submodule "cos"]
 	path = cos
-	url = ssh://git@forge.local.stijndepestel.com:222/stijn/dotfiles-cos.git
+	url = ssh://git@forge.fawkes.stijndepestel.com/stijn/dotfiles-cos.git
