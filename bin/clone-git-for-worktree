@@ -19,10 +19,14 @@ ABS_TARGET_DIR=$(pwd)
 echo "✅ Created directory $ABS_TARGET_DIR"
 
 git clone --bare "$GIT_URL" .bare
+# Some weird issue whereby the fetch config is not set. Might be the cause of some issues, might be totally normal that it's missing. Time will tell
+git -C .bare config --add remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 echo "✅ Repository cloned successfully."
 
 echo "gitdir: ./.bare" >.git
 echo "export WORKTREE_ROOT_DIR=$ABS_TARGET_DIR" >.envrc
+touch "$ABS_TARGET_DIR/.post-worktree-add"
+chmod +x "$ABS_TARGET_DIR/.post-worktree-add"
 echo "✅ Config files created."
 
 DEFAULT_BRANCH=$(git ls-remote --symref . HEAD | awk '/^ref:/ { split($2, a, "/"); printf "%s", a[3] }')

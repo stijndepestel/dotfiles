@@ -25,17 +25,13 @@ if [ -d "${HOME}/.local/share/fnm" ]; then
   export PATH="${PATH}:${HOME}/.local/share/fnm"
 fi
 
+if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/google-cloud-sdk/completion.zsh.inc'; fi
+
 if command -v fnm &> /dev/null
 then
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled --resolve-engines --shell zsh)"
 fi
-
-  # # fnm
-  # FNM_PATH="/home/stijn/.local/share/fnm"
-  # if [ -d "$FNM_PATH" ]; then
-  #   export PATH="/home/stijn/.local/share/fnm:$PATH"
-  #   eval "`fnm env`"
-  # fi
 
 if [ -d "${HOME}/.pyenv" ]; 
 then
@@ -157,3 +153,4 @@ export LANGUAGE=en_US.UTF-8
 
 # Other Aliases
 alias gbv="git branch -vv"
+alias cllear="clear && ll"
