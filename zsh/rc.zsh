@@ -154,3 +154,4 @@ export LANGUAGE=en_US.UTF-8
 # Other Aliases
 alias gbv="git branch -vv"
 alias cllear="clear && ll"
+alias godot="cd $DOTFILES_LOCATION"
