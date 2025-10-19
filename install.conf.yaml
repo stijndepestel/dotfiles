@@ -33,6 +33,10 @@
       path: nvim/
     ~/.config/eza:
       path: eza/
+    ~/.aider.conf.yml:
+      path: cos/aider/conf.yml
+    ~/.aider.model.metadata.json:
+      path: cos/aider/model.metadata.json
 
 - create:
     ~/.ssh:
