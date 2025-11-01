@@ -155,3 +155,4 @@ export LANGUAGE=en_US.UTF-8
 alias gbv="git branch -vv"
 alias cllear="clear && ll"
 alias godot="cd $DOTFILES_LOCATION"
+alias pj="pbpaste | jq ."

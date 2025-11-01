@@ -27,6 +27,8 @@
       path: tpm/
     ~/.config/git/config:
       path: git/config
+    ~/.config/git/ignore:
+      path: git/ignore
     ~/.config/git/cos:
       path: cos/git/config
     ~/.config/nvim:
