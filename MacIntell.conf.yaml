@@ -1,5 +1,0 @@
-- link:
-    ~/.config/git/local:
-      path: cos/git/MacIntell
-    ~/.ssh/config:
-      path: cos/ssh/MacIntell
