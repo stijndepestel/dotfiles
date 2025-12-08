@@ -4,3 +4,11 @@
 --
 
 vim.opt.relativenumber = false
+vim.opt.listchars = {
+  eol = "$",
+  tab = "-»",
+  trail = "~",
+  extends = ">",
+  precedes = "<",
+}
+vim.opt.list = false

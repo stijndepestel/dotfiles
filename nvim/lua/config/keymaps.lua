@@ -10,3 +10,6 @@ vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>", { desc = "Navigate Up" })
 
 -- Do not move deleted contents with "d" to the default register aka the clipboard.
 vim.keymap.set({ "n", "v" }, "d", '"_d', { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>uW", ":set list!<CR>", { desc = "Toggle whitespace" })
+vim.keymap.set("n", "<leader>ce", "<cmd>LspEslintFixAll<CR>", { desc = "eslint fix" })
