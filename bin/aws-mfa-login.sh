@@ -21,7 +21,8 @@ while getopts "f" flag; do
 done
 
 get_base_profile() {
-  mapfile -t PROFILES < <(aws configure list-profiles | awk '!/-mfa$/')
+  IFS=',' read -r -a EXCLUDE <<< "${AWS_MFA_LOGIN_EXCLUDE:-}"
+  mapfile -t PROFILES < <(aws configure list-profiles | awk '!/-mfa$/' | grep -v -x -F -f <(printf "%s\n" "${EXCLUDE[@]}"))
   if [ ${#PROFILES[@]} -eq 0 ]; then
     echo "No AWS profiles found" >&2
     exit 1
