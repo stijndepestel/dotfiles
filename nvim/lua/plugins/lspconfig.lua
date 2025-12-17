@@ -38,6 +38,14 @@ return {
           },
         },
       }
+
+      if os.getenv("DOTFILES_ID") == "aikido" then
+        opts.servers.phpactor = vim.tbl_deep_extend("force", opts.servers.phpactor or {}, {
+          init_options = {
+            ["code_transform.indentation"] = "\t",
+          },
+        })
+      end
     end,
   },
 }

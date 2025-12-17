@@ -12,3 +12,4 @@ vim.opt.listchars = {
   precedes = "<",
 }
 vim.opt.list = false
+vim.g.omni_sql_no_default_maps = 1
