@@ -2,7 +2,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 export DOTFILES_ID=$(cat $XDG_CONFIG_HOME/.id)
 export EZA_CONFIG_DIR="$XDG_CONFIG_HOME/eza"
 export DOTFILES_LOCATION="$HOME/.dotfiles"
-export PATH=$DOTFILES_LOCATION/bin:$HOME/bin:$HOME/.local/bin:/usr/local/go/bin:$PATH
+export PATH=$DOTFILES_LOCATION/cos/bin:$DOTFILES_LOCATION/bin:$HOME/bin:$HOME/.local/bin:/usr/local/go/bin:$PATH
 export BAT_THEME="Visual Studio Dark+"
 
 # Do this early, because other parts may depend on it being done.
