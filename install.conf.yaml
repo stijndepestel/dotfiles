@@ -19,8 +19,8 @@
       force: true
     ~/.config/tmux:
       path: tmux/
-    ~/.config/alacritty/alacritty.toml:
-      path: alacritty/alacritty.toml
+    ~/.config/alacritty:
+      path: alacritty/
     ~/.config/spaceship.zsh:
       path: zsh/spaceship.zsh
     ~/.tmux/plugins/tpm:
